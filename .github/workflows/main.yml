@@ -19,12 +19,8 @@ jobs:
         mkdir -p questlist
         mv *.lua questlist/
 
-    - name: Create ZIP archive
-      run: |
-        zip -r questlist.zip questlist
-
     - name: Upload archive
       uses: actions/upload-artifact@v4
       with:
         name: questlist-archive
-        path: questlist.zip
+        path: questlist
