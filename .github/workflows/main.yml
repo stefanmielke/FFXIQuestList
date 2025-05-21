@@ -1,0 +1,30 @@
+name: Package
+
+on:
+  push:
+    branches:
+      - main  # or whichever branch you want this to run on
+  workflow_dispatch:  # allows manual triggering from the Actions tab
+
+jobs:
+  archive_lua:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Create questlist directory and move .lua files
+      run: |
+        mkdir -p questlist
+        mv *.lua questlist/
+
+    - name: Create ZIP archive
+      run: |
+        zip -r questlist.zip questlist
+
+    - name: Upload archive
+      uses: actions/upload-artifact@v4
+      with:
+        name: questlist-archive
+        path: questlist.zip
