@@ -16,7 +16,7 @@ jobs:
 
     - name: Create questlist directory and move .lua files
       run: |
-        mkdir -p questlist
+        mkdir -p out/questlist
         mv *.lua out/questlist/
 
     - name: Upload archive
