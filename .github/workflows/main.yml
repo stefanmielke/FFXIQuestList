@@ -18,6 +18,7 @@ jobs:
       run: |
         mkdir -p out/questlist
         mv *.lua out/questlist/
+        mv LICENSE out/questlist/
 
     - name: Upload archive
       uses: actions/upload-artifact@v4
