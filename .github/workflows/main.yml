@@ -17,10 +17,10 @@ jobs:
     - name: Create questlist directory and move .lua files
       run: |
         mkdir -p questlist
-        mv *.lua questlist/
+        mv *.lua out/questlist/
 
     - name: Upload archive
       uses: actions/upload-artifact@v4
       with:
         name: questlist-archive
-        path: questlist/
+        path: out/
